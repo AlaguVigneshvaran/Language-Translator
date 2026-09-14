@@ -1,0 +1,824 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Modern language translator with voice input, text-to-speech and translation history."
+    >
+
+    <title>LinguaVoice - Language Translator</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <!-- ============================= -->
+    <!-- MAIN APPLICATION -->
+    <!-- ============================= -->
+
+    <div class="app">
+
+
+        <!-- ============================= -->
+        <!-- HEADER -->
+        <!-- ============================= -->
+
+        <header class="app-header">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    🌐
+                </div>
+
+                <div class="brand-text">
+
+                    <h1>
+                        LinguaVoice
+                    </h1>
+
+                    <p>
+                        Language Translator
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <!-- Dark Mode -->
+                <button
+                    type="button"
+                    id="themeBtn"
+                    class="icon-btn"
+                    title="Toggle dark mode"
+                    aria-label="Toggle dark mode"
+                >
+                    🌙
+                </button>
+
+
+                <!-- History Toggle -->
+                <button
+                    type="button"
+                    id="historyBtn"
+                    class="icon-btn"
+                    title="Translation history"
+                    aria-label="Open translation history"
+                >
+                    🕘
+                </button>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ============================= -->
+        <!-- MAIN CONTENT -->
+        <!-- ============================= -->
+
+        <main class="main-content">
+
+
+            <!-- ============================= -->
+            <!-- TRANSLATOR CARD -->
+            <!-- ============================= -->
+
+            <section
+                class="translator-card"
+                aria-label="Language translator"
+            >
+
+
+                <!-- ============================= -->
+                <!-- LANGUAGE SELECTORS -->
+                <!-- ============================= -->
+
+                <div class="language-selector">
+
+
+                    <!-- SOURCE LANGUAGE -->
+
+                    <div class="language-control">
+
+                        <label for="sourceLanguage">
+                            Translate from
+                        </label>
+
+                        <select
+                            id="sourceLanguage"
+                            aria-label="Source language"
+                        >
+
+                            <option value="en-US">
+                                🇬🇧 English
+                            </option>
+
+                            <option value="ta-IN">
+                                🇮🇳 Tamil
+                            </option>
+
+                            <option value="hi-IN">
+                                🇮🇳 Hindi
+                            </option>
+
+                            <option value="te-IN">
+                                🇮🇳 Telugu
+                            </option>
+
+                            <option value="ml-IN">
+                                🇮🇳 Malayalam
+                            </option>
+
+                            <option value="kn-IN">
+                                🇮🇳 Kannada
+                            </option>
+
+                            <option value="mr-IN">
+                                🇮🇳 Marathi
+                            </option>
+
+                            <option value="bn-IN">
+                                🇮🇳 Bengali
+                            </option>
+
+                            <option value="gu-IN">
+                                🇮🇳 Gujarati
+                            </option>
+
+                            <option value="fr-FR">
+                                🇫🇷 French
+                            </option>
+
+                            <option value="de-DE">
+                                🇩🇪 German
+                            </option>
+
+                            <option value="es-ES">
+                                🇪🇸 Spanish
+                            </option>
+
+                            <option value="it-IT">
+                                🇮🇹 Italian
+                            </option>
+
+                            <option value="pt-PT">
+                                🇵🇹 Portuguese
+                            </option>
+
+                            <option value="ru-RU">
+                                🇷🇺 Russian
+                            </option>
+
+                            <option value="ja-JP">
+                                🇯🇵 Japanese
+                            </option>
+
+                            <option value="ko-KR">
+                                🇰🇷 Korean
+                            </option>
+
+                            <option value="zh-CN">
+                                🇨🇳 Chinese
+                            </option>
+
+                            <option value="ar-SA">
+                                🇸🇦 Arabic
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <!-- SWAP -->
+
+                    <button
+                        type="button"
+                        id="swapBtn"
+                        class="swap-btn"
+                        title="Swap languages"
+                        aria-label="Swap languages"
+                    >
+                        ⇄
+                    </button>
+
+
+
+                    <!-- TARGET LANGUAGE -->
+
+                    <div class="language-control">
+
+                        <label for="targetLanguage">
+                            Translate to
+                        </label>
+
+                        <select
+                            id="targetLanguage"
+                            aria-label="Target language"
+                        >
+
+                            <option value="ta-IN">
+                                🇮🇳 Tamil
+                            </option>
+
+                            <option value="en-US">
+                                🇬🇧 English
+                            </option>
+
+                            <option value="hi-IN">
+                                🇮🇳 Hindi
+                            </option>
+
+                            <option value="te-IN">
+                                🇮🇳 Telugu
+                            </option>
+
+                            <option value="ml-IN">
+                                🇮🇳 Malayalam
+                            </option>
+
+                            <option value="kn-IN">
+                                🇮🇳 Kannada
+                            </option>
+
+                            <option value="mr-IN">
+                                🇮🇳 Marathi
+                            </option>
+
+                            <option value="bn-IN">
+                                🇮🇳 Bengali
+                            </option>
+
+                            <option value="gu-IN">
+                                🇮🇳 Gujarati
+                            </option>
+
+                            <option value="fr-FR">
+                                🇫🇷 French
+                            </option>
+
+                            <option value="de-DE">
+                                🇩🇪 German
+                            </option>
+
+                            <option value="es-ES">
+                                🇪🇸 Spanish
+                            </option>
+
+                            <option value="it-IT">
+                                🇮🇹 Italian
+                            </option>
+
+                            <option value="pt-PT">
+                                🇵🇹 Portuguese
+                            </option>
+
+                            <option value="ru-RU">
+                                🇷🇺 Russian
+                            </option>
+
+                            <option value="ja-JP">
+                                🇯🇵 Japanese
+                            </option>
+
+                            <option value="ko-KR">
+                                🇰🇷 Korean
+                            </option>
+
+                            <option value="zh-CN">
+                                🇨🇳 Chinese
+                            </option>
+
+                            <option value="ar-SA">
+                                🇸🇦 Arabic
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ============================= -->
+                <!-- TRANSLATION PANELS -->
+                <!-- ============================= -->
+
+                <div class="translation-panels">
+
+
+                    <!-- ============================= -->
+                    <!-- INPUT PANEL -->
+                    <!-- ============================= -->
+
+                    <div class="translation-panel">
+
+
+                        <div class="panel-header">
+
+                            <span>
+                                Original text
+                            </span>
+
+                            <span
+                                id="characterCount"
+                                class="character-count"
+                            >
+                                0 / 5000
+                            </span>
+
+                        </div>
+
+
+
+                        <div class="textarea-container">
+
+                            <textarea
+                                id="sourceText"
+                                maxlength="5000"
+                                placeholder="Type something or use the microphone..."
+                                aria-label="Original text"
+                            ></textarea>
+
+
+                            <!-- Voice Status -->
+
+                            <div
+                                id="voiceStatus"
+                                class="voice-status hidden"
+                            >
+
+                                <span class="recording-dot"></span>
+
+                                <span id="voiceStatusText">
+                                    Listening...
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- INPUT TOOLS -->
+
+                        <div class="panel-tools">
+
+
+                            <!-- Microphone -->
+
+                            <button
+                                type="button"
+                                id="micBtn"
+                                class="tool-btn voice-btn"
+                                title="Speak"
+                                aria-label="Start voice input"
+                            >
+
+                                <span
+                                    id="micIcon"
+                                >
+                                    🎤
+                                </span>
+
+                                <span>
+                                    Speak
+                                </span>
+
+                            </button>
+
+
+
+                            <!-- Clear -->
+
+                            <button
+                                type="button"
+                                id="clearBtn"
+                                class="tool-btn"
+                                title="Clear text"
+                                aria-label="Clear text"
+                            >
+
+                                🗑️
+
+                                <span>
+                                    Clear
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ============================= -->
+                    <!-- OUTPUT PANEL -->
+                    <!-- ============================= -->
+
+                    <div class="translation-panel">
+
+
+                        <div class="panel-header">
+
+                            <span>
+                                Translation
+                            </span>
+
+                            <span
+                                id="translationStatus"
+                                class="translation-status"
+                            >
+                            </span>
+
+                        </div>
+
+
+
+                        <div class="textarea-container">
+
+                            <textarea
+                                id="targetText"
+                                placeholder="Your translation will appear here..."
+                                readonly
+                                aria-label="Translated text"
+                            ></textarea>
+
+                        </div>
+
+
+
+                        <!-- OUTPUT TOOLS -->
+
+                        <div class="panel-tools">
+
+
+                            <!-- Text To Speech -->
+
+                            <button
+                                type="button"
+                                id="speakBtn"
+                                class="tool-btn"
+                                title="Listen to translation"
+                                aria-label="Listen to translation"
+                            >
+
+                                🔊
+
+                                <span>
+                                    Listen
+                                </span>
+
+                            </button>
+
+
+
+                            <!-- Stop Speech -->
+
+                            <button
+                                type="button"
+                                id="stopSpeakBtn"
+                                class="tool-btn"
+                                title="Stop speaking"
+                                aria-label="Stop speaking"
+                            >
+
+                                ⏹️
+
+                                <span>
+                                    Stop
+                                </span>
+
+                            </button>
+
+
+
+                            <!-- Copy -->
+
+                            <button
+                                type="button"
+                                id="copyBtn"
+                                class="tool-btn"
+                                title="Copy translation"
+                                aria-label="Copy translation"
+                            >
+
+                                📋
+
+                                <span>
+                                    Copy
+                                </span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- ============================= -->
+                <!-- STATUS MESSAGE -->
+                <!-- ============================= -->
+
+                <div
+                    id="statusMessage"
+                    class="status-message"
+                    role="status"
+                    aria-live="polite"
+                >
+                </div>
+
+
+
+                <!-- ============================= -->
+                <!-- TRANSLATE BUTTON -->
+                <!-- ============================= -->
+
+                <button
+                    type="button"
+                    id="translateBtn"
+                    class="translate-btn"
+                >
+
+                    <span id="translateIcon">
+                        🌐
+                    </span>
+
+                    <span id="translateBtnText">
+                        Translate
+                    </span>
+
+                </button>
+
+
+            </section>
+
+
+
+            <!-- ============================= -->
+            <!-- QUICK INFORMATION -->
+            <!-- ============================= -->
+
+            <section class="feature-section">
+
+                <div class="feature-item">
+
+                    <span>
+                        🎤
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Voice Input
+                        </strong>
+
+                        <p>
+                            Speak naturally
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <span>
+                        🔊
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Voice Output
+                        </strong>
+
+                        <p>
+                            Listen to translations
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="feature-item">
+
+                    <span>
+                        💾
+                    </span>
+
+                    <div>
+
+                        <strong>
+                            Local History
+                        </strong>
+
+                        <p>
+                            Saved privately in your browser
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+
+
+        <!-- ============================= -->
+        <!-- HISTORY SIDEBAR -->
+        <!-- ============================= -->
+
+        <aside
+            id="historyPanel"
+            class="history-panel"
+            aria-label="Translation history"
+        >
+
+
+            <!-- History Header -->
+
+            <div class="history-header">
+
+                <div>
+
+                    <h2>
+                        Translation History
+                    </h2>
+
+                    <p>
+                        Your previous translations
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="closeHistoryBtn"
+                    class="close-btn"
+                    title="Close history"
+                    aria-label="Close history"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+
+            <!-- Search -->
+
+            <div class="history-search">
+
+                <input
+                    type="search"
+                    id="historySearch"
+                    placeholder="Search history..."
+                    aria-label="Search translation history"
+                >
+
+            </div>
+
+
+
+            <!-- History Controls -->
+
+            <div class="history-controls">
+
+                <span id="historyCount">
+                    0 translations
+                </span>
+
+
+                <button
+                    type="button"
+                    id="clearHistoryBtn"
+                    class="clear-history-btn"
+                >
+                    Clear all
+                </button>
+
+            </div>
+
+
+
+            <!-- History List -->
+
+            <div
+                id="historyList"
+                class="history-list"
+            >
+
+                <!-- JavaScript inserts history cards here -->
+
+                <div
+                    id="emptyHistory"
+                    class="empty-history"
+                >
+
+                    <div class="empty-history-icon">
+                        🕘
+                    </div>
+
+                    <h3>
+                        No translation history
+                    </h3>
+
+                    <p>
+                        Your translations will appear here.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- ============================= -->
+        <!-- HISTORY OVERLAY -->
+        <!-- ============================= -->
+
+        <div
+            id="historyOverlay"
+            class="history-overlay"
+        >
+        </div>
+
+
+
+        <!-- ============================= -->
+        <!-- TOAST NOTIFICATION -->
+        <!-- ============================= -->
+
+        <div
+            id="toast"
+            class="toast"
+            role="alert"
+            aria-live="assertive"
+        >
+        </div>
+
+
+
+        <!-- ============================= -->
+        <!-- FOOTER -->
+        <!-- ============================= -->
+
+        <footer class="app-footer">
+
+            <p>
+                LinguaVoice &copy; 2026
+            </p>
+
+            <p>
+                Translation history is stored locally in your browser.
+            </p>
+
+        </footer>
+
+
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ============================= -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+
